@@ -3,7 +3,7 @@
   <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
   <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
     <div class="collapse-title text-xl font-medium">
-      Pedro Montefusco 2
+      Pedro Montefusco 1
     </div>
     <div class="collapse-content"> 
       <div class="stats">
