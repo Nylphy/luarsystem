@@ -5,8 +5,8 @@
     <div class="collapse-title text-xl font-medium">
       Pedro Montefusco 1
     </div>
-    <div class="collapse-content"> 
-      <div class="stats">
+    <div class="collapse"> 
+      <div class="stats stats-vertical lg:stats-horizontal shadow">
   
         <div class="stat">
           <div class="stat-title">Total Page Views</div>
@@ -39,7 +39,7 @@
   </div>
 
   <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-  <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+  <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box pt-px">
     <div class="collapse-title text-xl font-medium">
       Pedro Montefusco
     </div>
