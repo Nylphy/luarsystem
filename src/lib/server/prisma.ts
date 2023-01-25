@@ -7,3 +7,4 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export { prisma };
+export const prerender = true;
