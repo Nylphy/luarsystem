@@ -3,8 +3,6 @@
 	import Fuse from 'fuse.js';
 
 	export let data: PageData;
-	$: ({ produtos } = data);
-
 	// fuse options, check https://fusejs.io/
 	export let fuseShouldSort = true;
 	export let fuseThreshold = 0; //0.6
@@ -21,16 +19,21 @@
 		keys: ['Codigo', 'Descricao']
 	};
 
-	let search = '';
-	let filteredItems: any;
+	export let search = 'AMARE';
+	export let filteredItems: any;
+	export let fuse = new Fuse(data.produtos, fuseOptions);
 
-	$: if (!search) {
-		filteredItems = produtos;
-		console.log('not found search');
-	} else {
-		let fuse = new Fuse(produtos, fuseOptions);
-		filteredItems = fuse.search(search);
-		console.log('searching');
+	if (data.produtos) {
+		filteredItems = searchProduct(search);
+	}
+
+	async function searchProduct(search: string) {
+		if (search) {
+			filteredItems = fuse.search(search);
+		} else {
+			filteredItems = data.produtos;
+			console.log(filteredItems);
+		}
 	}
 </script>
 
@@ -38,7 +41,6 @@
 	<h1 class="text-3xl text-red-500 bg-cyan-500">Welcome to SvelteKit</h1>
 </div>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<input bind:value={search} />
 <div class="grid place-items-center">
 	<table class="table table-fixed">
 		<!-- head -->
@@ -61,7 +63,7 @@
 					</tr>
 				{/each}
 			{/if}
-			{#if !search}
+			<!-- {#if !search}
 				{#each filteredItems as produto}
 					<tr class="text-start">
 						<td>{produto.Codigo}</td>
@@ -70,7 +72,7 @@
 						<td>{produto.Preco}</td>
 					</tr>
 				{/each}
-			{/if}
+			{/if} -->
 		</tbody>
 	</table>
 </div>
